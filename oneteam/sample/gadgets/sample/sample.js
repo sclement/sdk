@@ -11,23 +11,19 @@ define(function(require, exports, module) {
 
         TEMPLATE: html,
 
-        configureDefault: function()
-        {
-            this.base();
-        },
-
-        setup: function()
-        {
+        setup: function() {
             this.get("/projects/{projectId}/sample", this.index);
         },
 
-        prepareModel: function(el, model, callback)
-        {
+        prepareModel: function(el, model, callback) {
+
             var self = this;
 
             this.base(el, model, function() {
 
-                model.title = "Hello World";
+                var project = self.observable("project").get();
+
+                model.title = "Hello World for project " + project.title;
 
                 callback();
 
@@ -41,6 +37,7 @@ define(function(require, exports, module) {
             this.base(el, model, originalContext, function() {
 
                 // TODO: any post-render setup
+                // this is where you'd plug in custom JS post DOM render
 
                 callback();
             });
