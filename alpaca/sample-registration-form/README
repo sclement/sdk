@@ -5,19 +5,6 @@ definitions and forms that are stored within Cloud CMS.
 
 In addition, this example demonstrates how to post form information to Cloud CMS and collect it within a data list.
 
-## Load the Sample Data
-
-This sample relies upon sample data that can be acquired by installing the Cloud CMS Sample Forms Project.  Without
-this data, the sample can still be used as a reference for how to set up a standalone Alpaca form.
-
-## Build Project
-
-To install the project, you should run:
-
-    bower install
-
-This requires of course that you have Bower installed first.
-
 ## Configure your connection information
 
 Edit the js/sample.js file and fill in your API Key information for:
@@ -28,9 +15,32 @@ Edit the js/sample.js file and fill in your API Key information for:
 - username
 - password
 
-## Start the Web Server
+## Set up the Sample Data
 
-Mount a web server to the local directory and enjoy.
+This sample relies upon sample data that can be acquired by installing the Cloud CMS Sample Forms Project.  Without
+this data, the sample can still be used as a reference for how to set up a standalone Alpaca form.
+
+If you don't have the sample data, you can do the following:
+
+1.  Create a Content Definition and Form for your registration.
+2.  Create a Data List and set the data list item type to your Content Definition from step #1.
+3.  Modify the js/sample.js file and provide correct values for schemaSource and optionsSource so that they identify
+    your data list (by list key) and form (by form key) respectively.
+
+The index.html page also loads an image on lines 33-34 of js/sample.js.  You don't have to do this.  Feel free to
+comment it out or add an image to your project with the path /Images/register-now.png.
+
+## Build the Project
+
+To install the project, you should run:
+
+    bower install
+
+This requires of course that you have Bower installed first.
+
+## Start a Web Server
+
+Start a web server in the current directory.
 
 If you're running a Mac, you can do:
 
