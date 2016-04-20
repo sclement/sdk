@@ -23,3 +23,11 @@ vendor/
 # don't check in gitana.json files
 gitana.json
 gitana.json*
+
+composer.lock
+composer.phar
+
+customer.*
+
+sessions
+sessions/*.json
