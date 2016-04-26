@@ -31,3 +31,6 @@ customer.*
 
 sessions
 sessions/*.json
+
+*.temp
+_temp

@@ -17,3 +17,16 @@ more detail here:
 
      https://www.cloudcms.com/helloworld.html
 
+
+## Setting things up
+
+First, download the gitana.json file for your application or use the cloudcms command line client to initialize a gitana.json
+in the local directory.
+
+Then run:
+
+    npm install
+    
+To run the app:
+
+    npm start

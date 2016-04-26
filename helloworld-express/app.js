@@ -29,9 +29,9 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // some articles relating to programming
-var article1 = require("./content/article1.json");
-var article2 = require("./content/article2.json");
-var article3 = require("./content/article3.json");
+var ARTICLE_1 = require("./content/article1.json");
+var ARTICLE_2 = require("./content/article2.json");
+var ARTICLE_3 = require("./content/article3.json");
 
 // connect to Cloud CMS
 // this looks for gitana.json in local directory
@@ -71,12 +71,20 @@ var bindControllers = function(branch, app)
 {
     app.get("/setup", function(req, res) {
         Chain(branch).then(function() {
-            this.createNode(article1);
-            this.createNode(article2);
-            this.createNode(article3);
+
+            // delete any previous sample content
+            this.queryNodes({
+                "example": "helloworld"
+            }).del();
+
+            // create sample content
+            this.createNode(ARTICLE_1);
+            this.createNode(ARTICLE_2);
+            this.createNode(ARTICLE_3);
+
         }).then(function() {
             res.render("setup", {
-                "nodes": [article1, article2, article3]
+                "nodes": [ARTICLE_1, ARTICLE_2, ARTICLE_3]
             });
         });
     });
