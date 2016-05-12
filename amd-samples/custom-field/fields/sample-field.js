@@ -1,4 +1,6 @@
-(function($) {
+define(function(require, exports, module) {
+
+    var $ = require("jquery");
 
     var Alpaca = $.alpaca;
 
@@ -109,5 +111,8 @@
     Alpaca.registerMessages({
         "noDependentField": "No dependent field found"
     });
+    
     Alpaca.registerFieldClass("sample-field", Alpaca.Fields.SampleField);
-})(jQuery);
+
+});
+
